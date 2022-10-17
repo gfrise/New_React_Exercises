@@ -11,12 +11,20 @@ export class TodoList extends React.Component {
         const toAdd = event.target.elements.todo.value
 
         event.target.elements.todo.value= ''
-        
+
         this.setState((state)=>{
             return {
                 items: [...state.items, toAdd]
             }
 
+        })
+    }
+
+    resetta = () => {
+        this.setState((state)=>{
+            return {
+                items: []
+            }
         })
     }
 
@@ -27,6 +35,7 @@ export class TodoList extends React.Component {
             <form onSubmit={this.handle}>
             <input name="todo"></input>
             <button type="submit">Add</button>
+            <button type="reset" onClick={this.resetta}>Resetta</button>
             </form>
             </>
         )
