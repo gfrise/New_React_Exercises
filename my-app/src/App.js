@@ -2,7 +2,7 @@ import { Hello } from './Hello';
 import React, { useTransition } from 'react';
 import { Welcome, name } from './Welcome';
 import { Counter } from './Counter';
-import { Login } from './Login';
+import { UncontrolledLogin } from './UncrontrolledLogin';
 
 export class App extends React.Component {
 	onLogin = (username, password, remember) => {
@@ -19,7 +19,7 @@ export class App extends React.Component {
 				< Hello />
 				< Welcome name={name} age={18} />
 				<Counter initialValue={0} increment={1} interval={1000} />
-				<Login onLogin={this.onLogin}/>
+				<UncontrolledLogin onLogin={this.onLogin}/>
 			</>
 		)
 	}
