@@ -7,6 +7,10 @@ export class UncontrolledLogin extends React.Component {
         disabled: false,
     }
 
+    componentDidMount() {
+        this._ref.current.elements.username.focus()
+    }
+
     handleSubmit = (event) => {
         event.preventDefault()
 
