@@ -28,10 +28,18 @@ export class TodoList extends React.Component {
         })
     }
 
+    handleremove = (index_to_delete) => {
+        this.setState((state) => {
+            return {
+                items: state.items.filter((element, index) => index !== index_to_delete)
+            }
+        })
+    }
+
     render () {
         return (
             <>
-            <ul>{this.state.items.map((el, index) => <li key={index}>{el}</li>)}</ul>
+            <ul>{this.state.items.map((elemento_array, index) => <li key={index}>{elemento_array} <button onClick={() => this.handleremove(index)}>Rimuovi</button></li>)}</ul>
             <form onSubmit={this.handle}>
             <input name="todo"></input>
             <button type="submit">Add</button>
