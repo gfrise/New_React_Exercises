@@ -8,12 +8,15 @@ export class TodoList extends React.Component {
     handle = (event) => {
         event.preventDefault()
 
-        const toAdd = event.target.todo.value
+        const toAdd = event.target.elements.todo.value
 
+        event.target.elements.todo.value= ''
+        
         this.setState((state)=>{
             return {
                 items: [...state.items, toAdd]
             }
+
         })
     }
 
