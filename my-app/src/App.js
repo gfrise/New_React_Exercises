@@ -4,6 +4,7 @@ import { Welcome, name } from './Welcome';
 import { Counter } from './Counter';
 import { UncontrolledLogin } from './UncrontrolledLogin';
 import { TodoList } from './TodoList';
+import { Container } from './Container';
 
 export class App extends React.Component {
 	onLogin = (username, password, remember) => {
@@ -17,11 +18,13 @@ export class App extends React.Component {
 	render() {
 		return (
 			<>
-				< Hello />
-				< Welcome name={name} age={18} />
-				<Counter initialValue={0} increment={1} interval={1000} />
-				<UncontrolledLogin onLogin={this.onLogin}/>
-				<TodoList />
+				<Container>
+					< Hello />
+					< Welcome name={name} age={18} />
+					<Counter initialValue={0} increment={1} interval={1000} />
+					<UncontrolledLogin onLogin={this.onLogin}/>
+					<TodoList />
+				</Container>	
 			</>
 		)
 	}
