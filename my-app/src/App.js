@@ -18,7 +18,7 @@ export class App extends React.Component {
 	render() {
 		return (
 			<>
-				<Container>
+				<Container title={<h1>My App</h1>}>
 					< Hello />
 					< Welcome name={name} age={18} />
 					<Counter initialValue={0} increment={1} interval={1000} />
