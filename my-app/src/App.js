@@ -22,7 +22,7 @@ export class App extends React.Component {
 
 	handleContext = (event) => {
 		this.setState({
-			language: event.target.language.value
+			language: event.target.value
 		})
 	}
 
