@@ -6,8 +6,11 @@ import { UncontrolledLogin } from './UncrontrolledLogin';
 import { TodoList } from './TodoList';
 import { Container } from './Container';
 import { LanguageContext, DisplayLanguage } from './DisplayLanguage';
+import { Sum } from './Sum';
 
 export class App extends React.Component {
+	number = [3, 5, 6, 6]
+
 	onLogin = (username, password, remember) => {
 		console.log({
 			username,
@@ -40,6 +43,7 @@ export class App extends React.Component {
 				<LanguageContext.Provider value={this.state.language}>
 					<DisplayLanguage />
 				</LanguageContext.Provider>
+				<Sum numbers={number} />
 				<Container title={<h1>My App</h1>}>
 					< Hello />
 					< Welcome name={name} age={18} />
