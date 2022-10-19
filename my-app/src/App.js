@@ -5,6 +5,7 @@ import { Counter } from './Counter';
 import { UncontrolledLogin } from './UncrontrolledLogin';
 import { TodoList } from './TodoList';
 import { Container } from './Container';
+import { LanguageContext, DisplayLanguage } from './DisplayLanguage';
 
 export class App extends React.Component {
 	onLogin = (username, password, remember) => {
@@ -15,9 +16,30 @@ export class App extends React.Component {
 		})
 	}
 
+	state = {
+		language: "en",
+	};
+
+	handleContext = (event) => {
+		this.setState({
+			language: event.target.language.value
+		})
+	}
+
 	render() {
 		return (
-			<>
+			<>	
+				<div>
+					<select name="language" value={this.state.language} onChange={this.handleContext}>
+						<option value="it">Italiano</option>
+						<option value="en">Inglese</option>
+						<option value="fr">Francese</option>
+						<option value="la">Latino</option>
+					</select>
+				</div>
+				<LanguageContext.Provider value={this.state.language}>
+					<DisplayLanguage />
+				</LanguageContext.Provider>
 				<Container title={<h1>My App</h1>}>
 					< Hello />
 					< Welcome name={name} age={18} />
