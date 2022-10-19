@@ -23,7 +23,17 @@ export class App extends React.Component {
 					< Welcome name={name} age={18} />
 					<Counter initialValue={0} increment={1} interval={1000} />
 					<UncontrolledLogin onLogin={this.onLogin}/>
-					<TodoList />
+					<TodoList
+						render={(todos, handleClick) => {
+							return (
+								<ul>
+									{todos.map((todo, index) => (
+										<li key={index}>{todo} <button onClick={() => handleClick(index)}>X</button></li>
+									))}
+								</ul>
+							)
+						}}
+					/>
 				</Container>	
 			</>
 		)
