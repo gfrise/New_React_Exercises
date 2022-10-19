@@ -15,7 +15,7 @@ export function Login(props) {
 
         setFormData((formData) => {
             return {
-                [name]: type === "Checkbox" ? checked : value
+                [name]: type === "checkbox" ? checked : value
             }
         })
     }
