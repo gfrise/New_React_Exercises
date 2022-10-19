@@ -1,40 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 
-export class Login extends React.Component {
-    state = {
+export function Login(props) {
+    const [formData, setFormData] = useState({
         username: '',
         password: '',
         remember: false,
-    }
+    })
 
-    handle = (event) => {
+    const handle = (event) => {
         const name = event.target.name
         const value = event.target.value
         const type = event.target.type
         const checked = event.target.checked
 
-        this.setState({
-            [name]: type === 'checkbox' ? checked : value
+        setFormData((formData) => {
+            return {
+                [name]: type === "Checkbox" ? checked : value
+            }
         })
     }
 
-    handleClick = () => {
-        this.props.onLogin(this.state)
+    const handleClick = () => {
+        props.onLogin(formData)
     }
 
-    render() {
-
-        const myStyle = {
-            backgroundColor: this.state.password.length < 8 ? 'red' : 'green'
-        }
-
-        return (
-            <>
-            <input name='username' onChange={this.handle} value={this.state.username}></input>
-            <input type='password' name='password' onChange={this.handle} value={this.state.password}></input>
-            <input type='checkbox' name='remember' onChange={this.handle} checked={this.state.remember}></input>
-            <button style={myStyle} onClick={this.handleClick} disabled={!this.state.username || !this.state.password}>Login</button>
-            </>
-        )
+    const myStyle = {
+        backgroundColor: formData.password.length < 8 ? 'red' : 'green'
     }
+
+    return (
+        <>
+                <input name="username" onChange={handle} value={formData.username}></input>
+                <input name="password" onChange={handle} type="password" value={formData.password}></input>
+                <input name="remember" onChange={handle} type="checkbox" checked={formData.remember}></input>
+                <button style={myStyle} onClick={handleClick} disabled={!formData.username || !formData.password}>Login</button>
+        </>
+    )
 }
