@@ -45,7 +45,7 @@ export class App extends React.Component {
 					</select>
 				</div>
 				<GitHubUserList/>
-				<GitHubUser username={gfrise}/>
+				<GitHubUser username={'gfrise'}/>
 				<LanguageContext.Provider value={this.state.language}>
 					<DisplayLanguage />
 				</LanguageContext.Provider>
