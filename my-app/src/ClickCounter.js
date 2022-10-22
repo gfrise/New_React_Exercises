@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-export function ClickCounter() {
+export function ClickCounter({onCounterChange}) {
     const [count, setCount] = useState(0)
+
+    useEffect(()=> {
+        onCounterChange(count)
+    }, [count, onCounterChange])
+    
 
     const shoot = () => {
         setCount((count) => count + 1)

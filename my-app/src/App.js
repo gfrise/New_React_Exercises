@@ -7,6 +7,7 @@ import { TodoList } from './TodoList';
 import { Container } from './Container';
 import { LanguageContext, DisplayLanguage } from './DisplayLanguage';
 import { Sum } from './Sum';
+import { ClickCounter } from './ClickCounter';
 
 export class App extends React.Component {
 	number = [3, 5, 6, 6]
@@ -61,6 +62,7 @@ export class App extends React.Component {
 						}}
 					/>
 				</Container>	
+				<ClickCounter props={onCounterChange} />
 			</>
 		)
 	}
