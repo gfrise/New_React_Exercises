@@ -8,6 +8,7 @@ import { Container } from './Container';
 import { LanguageContext, DisplayLanguage } from './DisplayLanguage';
 import { Sum } from './Sum';
 import { ClickCounter } from './ClickCounter';
+import { GitHubUser } from './GitHubUser';
 
 export class App extends React.Component {
 	number = [3, 5, 6, 6]
@@ -41,6 +42,7 @@ export class App extends React.Component {
 						<option value="la">Latino</option>
 					</select>
 				</div>
+				<GitHubUser username={gfrise}/>
 				<LanguageContext.Provider value={this.state.language}>
 					<DisplayLanguage />
 				</LanguageContext.Provider>
