@@ -1,30 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { CounterDisplay } from "./CounterDisplay";
 import { ClickCounter } from "./ClickCounter";
 import { ClickTracker } from "./ClickTracker";
 
-export class Counter extends React.Component {
-    state = {
-        count: this.props.initialValue,
-    }
+function Counter({props}) {
 
-    componentDidMount() {
-        setInterval(() => {
-          this.setState((state) => {
-            return {
-              count: state.count + this.props.increment,
-            }
-          })
-        }, this.props.interval)
-    }
+    const [count, setCount] = useState(props.initialValue)
 
-    render () {
-        return (
-            <>
-             <CounterDisplay count={this.state.count}/>
-             <ClickCounter />
-             <ClickTracker />
-            </> 
-        )
-    }
+    useEffect(() => {
+      let timer = setInterval(()=> {
+        setCount((count) => count + props.increment)
+      }, props.interval)
+
+    return () => clearInterval(timer)
+    }, [])
+
+    return (
+        <>
+          <CounterDisplay count={count}/>
+          <ClickCounter />
+          <ClickTracker />
+        </> 
+    )
 }
