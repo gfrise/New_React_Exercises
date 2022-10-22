@@ -10,6 +10,7 @@ import { Sum } from './Sum';
 import { ClickCounter } from './ClickCounter';
 import { GitHubUser } from './GitHubUser';
 import { GitHubUserList } from './GitHubUserList';
+import { FormWithHooks } from './FormWithHook';
 
 export class App extends React.Component {
 	number = [3, 5, 6, 6]
@@ -67,6 +68,7 @@ export class App extends React.Component {
 					/>
 				</Container>	
 				<ClickCounter props={onCounterChange} />
+				<FormWithHooks />
 			</>
 		)
 	}
