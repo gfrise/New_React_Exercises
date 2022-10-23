@@ -11,6 +11,7 @@ import { ClickCounter } from './ClickCounter';
 import { GitHubUser } from './GitHubUser';
 import { GitHubUserList } from './GitHubUserList';
 import { FormWithHooks } from './FormWithHook';
+import { CardDetails } from './CardDetails';
 
 export class App extends React.Component {
 	number = [3, 5, 6, 6]
@@ -21,6 +22,12 @@ export class App extends React.Component {
 			password,
 			remember
 		})
+	}
+
+	dati = {
+		model: 'ford',
+		year: 2002,
+		color: 'yellow'
 	}
 
 	state = {
@@ -69,6 +76,7 @@ export class App extends React.Component {
 				</Container>	
 				<ClickCounter props={onCounterChange} />
 				<FormWithHooks />
+				<CardDetails initialData={dati}/>
 			</>
 		)
 	}
