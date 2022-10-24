@@ -1,25 +1,27 @@
-import React from "react";
+import React, { useCallback } from "react";
+import { useState } from "react";
 
 export function UseCounter() {
     const[counter, setCounter] = useState(0)
 
-    const plus = function increment() {
+    const plus = useCallback(()=> {
         setCounter((counter) => {
             return counter + 1
         })
-    }
+    })
 
-    const minus = function decrement() {
+    const minus = useCallback(() => {
         setCounter((counter)=> {
             return counter - 1
         })
-    }
+    })
 
-    const reinitialize = function reset() {
+    const reinitialize = useCallback(() => {
         setCounter((counter) => {
             return 0
         })
-    }
+    })
+    
 
     return {
         counter: counter,

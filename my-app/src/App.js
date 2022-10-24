@@ -14,6 +14,7 @@ import { FormWithHooks } from './FormWithHook';
 import { CardDetails } from './CardDetails';
 import { useState } from 'react';
 import { Context } from './Context';
+import { HookCounter } from './HookCounter';
 
 export function App() {
 	number = [3, 5, 6, 6]
@@ -40,6 +41,7 @@ export function App() {
 
 		return (
 			<>	
+				<HookCounter />
 				<div>
 				<Context.Provider value={language}>
 					<select value={language} onChange={handle}>
