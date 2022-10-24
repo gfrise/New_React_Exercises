@@ -5,15 +5,17 @@ import { Counter } from './Counter';
 import { UncontrolledLogin } from './UncrontrolledLogin';
 import { TodoList } from './TodoList';
 import { Container } from './Container';
-import { LanguageContext, DisplayLanguage } from './DisplayLanguage';
+import { DisplayLanguage } from './DisplayLanguage';
 import { Sum } from './Sum';
 import { ClickCounter } from './ClickCounter';
 import { GitHubUser } from './GitHubUser';
 import { GitHubUserList } from './GitHubUserList';
 import { FormWithHooks } from './FormWithHook';
 import { CardDetails } from './CardDetails';
+import { useState } from 'react';
+import { Context } from './Context';
 
-export class App extends React.Component {
+export function App() {
 	number = [3, 5, 6, 6]
 
 	onLogin = (username, password, remember) => {
@@ -30,32 +32,27 @@ export class App extends React.Component {
 		color: 'yellow'
 	}
 
-	state = {
-		language: "en",
-	};
+	const [language, setLanguage] = useState('en')
 
-	handleContext = (event) => {
-		this.setState({
-			language: event.target.value
-		})
-	}
+	function handle(event) {
+  	  setLanguage(event.target.value)
+  	}
 
-	render() {
 		return (
 			<>	
 				<div>
-					<select name="language" value={this.state.language} onChange={this.handleContext}>
-						<option value="it">Italiano</option>
-						<option value="en">Inglese</option>
-						<option value="fr">Francese</option>
-						<option value="la">Latino</option>
+				<Context.Provider value={language}>
+					<select value={language} onChange={handle}>
+					<option value={'en'}>English</option>
+					<option value={'it'}>Italiano</option>
+					<option value={'lat'}>Latinvs</option>
+					<option value={'fr'}>Francais</option>
 					</select>
+				<DisplayLanguage />
+    			</Context.Provider>
 				</div>
 				<GitHubUserList/>
 				<GitHubUser username={'gfrise'}/>
-				<LanguageContext.Provider value={this.state.language}>
-					<DisplayLanguage />
-				</LanguageContext.Provider>
 				<Sum numbers={number} />
 				<Container title={<h1>My App</h1>}>
 					< Hello />
@@ -79,5 +76,4 @@ export class App extends React.Component {
 				<CardDetails initialData={dati}/>
 			</>
 		)
-	}
 }

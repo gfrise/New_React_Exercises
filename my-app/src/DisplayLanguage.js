@@ -1,30 +1,18 @@
-import React, { createContext } from "react";
+import React, { useContext } from 'react'
+import { Context } from './Context'
 
-export const LanguageContext = createContext('en')
-
-const Strings = {
-    en : {
-        current: 'english language'
-    },
-    it : {
-        current: 'lingua italiana'
-    },
-    fr : {
-        current: 'langue francaise'
-    },
-    la : {
-        current: 'lingva latina'
+export function DisplayLanguage() {
+    const strings = {
+        en: 'This is the English Language',
+        it: 'Questa è la lingua Italiana',
+        fr: "C'est la langue Francaise",
+        lat: 'Haec lingva latina est'
     }
-}
 
-export class DisplayLanguage extends React.Component {
-    render () {
-        return (
-            <>
-                <LanguageContext.Consumer>
-                  {(language) => <h1>{Strings[language].current}</h1>}
-                </LanguageContext.Consumer>
-            </>
-        )
-    }
+    const language = useContext(Context)
+    return (
+        <>
+            <h1>{strings[language]}</h1>
+        </>
+    )
 }
