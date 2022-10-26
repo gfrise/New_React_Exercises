@@ -15,6 +15,7 @@ import { CardDetails } from './CardDetails';
 import { useState } from 'react';
 import { Context } from './Context';
 import { HookCounter } from './HookCounter';
+import { FilteredList } from './FilteredList';
 
 export function App() {
 	number = [3, 5, 6, 6]
@@ -33,6 +34,24 @@ export function App() {
 		color: 'yellow'
 	}
 
+	const list = [
+		{
+			name: 'John',
+			age: 18,
+			id: 1
+		},
+		{
+			name: 'Jim',
+			age: 134,
+			id: 2
+		},
+		{
+			name: 'Tom',
+			age: 23,
+			id: 3
+		},
+	]
+
 	const [language, setLanguage] = useState('en')
 
 	function handle(event) {
@@ -41,6 +60,7 @@ export function App() {
 
 		return (
 			<>	
+				    <FilteredList list={list}/>
 				<HookCounter />
 				<div>
 				<Context.Provider value={language}>
