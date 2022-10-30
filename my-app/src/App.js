@@ -61,8 +61,8 @@ export function App() {
 		return (
 			<>	
 			<Routes>
-				<Route path="/" element={<Welcome name={'Joe'} />}>
-				</Route>
+				<Route path="/" element={<Welcome name={'Joe'} />}/>
+				<Route path="/counter" element={<ClickCounter />}/>
 			</Routes>
 				    {/* <FilteredList list={list}/>
 				<HookCounter />
