@@ -78,6 +78,7 @@ export function App() {
 				<Route path="/" element={<Welcome name={'Joe'} />}/>
 				<Route path="/counter" element={<ClickCounter />}/>
 				<Route path="/users/:username" element={<ShowGithubUser />}/>
+				<Route path="*" element={<p>ERROR 404</p>} />
 			</Routes>
 			
 			
