@@ -60,7 +60,11 @@ export function App() {
 
 		return (
 			<>	
-				    <FilteredList list={list}/>
+			<Routes>
+				<Route path="/" element={<Welcome name={'Joe'} />}>
+				</Route>
+			</Routes>
+				    {/* <FilteredList list={list}/>
 				<HookCounter />
 				<div>
 				<Context.Provider value={language}>
@@ -95,7 +99,7 @@ export function App() {
 				</Container>	
 				<ClickCounter props={onCounterChange} />
 				<FormWithHooks />
-				<CardDetails initialData={dati}/>
+				<CardDetails initialData={dati}/> */}
 			</>
 		)
 }
