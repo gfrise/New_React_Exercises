@@ -68,11 +68,19 @@ export function App() {
 
 		return (
 			<>	
+			<h1>Links</h1>
+			<p>
+				<Link to={'/'}>Welcome</Link> | 
+				<Link to={'/counter'}>ClickCounter</Link> | 
+				<Link to={'/gfrise'}>GitHubUser</Link>
+			</p>
 			<Routes>
 				<Route path="/" element={<Welcome name={'Joe'} />}/>
 				<Route path="/counter" element={<ClickCounter />}/>
 				<Route path="/users/:username" element={<ShowGithubUser />}/>
 			</Routes>
+			
+			
 				    {/* <FilteredList list={list}/>
 				<HookCounter />
 				<div>
