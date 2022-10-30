@@ -4,14 +4,17 @@ export function useFormHook() {
     const[data, setData] = useState([])
 
     function handleChange(event) {
-        const value = event.target.value;
+        const name = event.target.name
+        const value = event.target.value
+        const type = event.target.type
+        const checked = event.target.checked
+        
+        setData((data) => {
+            return {
+                ...data, [name]:type === "checkbox"? checked: value
+            }
+        })
     }
-
-    setData((data) => {
-        return {
-            ...data, value
-        }
-    })
 
     return {data, handleChange}
 }
