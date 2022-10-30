@@ -16,6 +16,14 @@ import { useState } from 'react';
 import { Context } from './Context';
 import { HookCounter } from './HookCounter';
 import { FilteredList } from './FilteredList';
+import {BrowserRouter as Routes, Route, useParams} from 'react-router-dom'
+
+export function ShowGithubUser() {
+	const {username} = useParams()
+	return (
+		<GitHubUser username={username} />
+	)
+}
 
 export function App() {
 	number = [3, 5, 6, 6]
@@ -63,6 +71,7 @@ export function App() {
 			<Routes>
 				<Route path="/" element={<Welcome name={'Joe'} />}/>
 				<Route path="/counter" element={<ClickCounter />}/>
+				<Route path="/users/:username" element={<ShowGithubUser />}/>
 			</Routes>
 				    {/* <FilteredList list={list}/>
 				<HookCounter />
